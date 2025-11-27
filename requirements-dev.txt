@@ -1,0 +1,8 @@
+# Dépendances de base
+-r requirements.txt
+
+# Outils de développement et qualité de code
+ruff>=0.1.0         # Linter Python moderne (remplace flake8, isort, etc.)
+black>=23.0.0       # Formateur de code
+mypy>=1.7.0         # Type checking statique
+pytest-cov>=4.1.0   # Couverture de code pour pytest
