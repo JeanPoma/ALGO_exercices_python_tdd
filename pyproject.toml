@@ -4,9 +4,10 @@ pythonpath = [
 ]
 testpaths = [
   "ex01_variables_conditions/tests",
-  "ex02_boucles_listes/tests",
+  "ex02_boucles_listes_dictionaire/tests",
   "ex03_fonctions_algo/tests",
   "ex04_tri/tests",
-  "ex05_arbre_parcours/tests"
+  "ex05_arbre_parcours/tests",
+  "ex06_voyageur_commerce/tests"
 ]
 addopts = "-q"
