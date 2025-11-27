@@ -1,35 +1,201 @@
-# Projet d'algorithmie – Exercices progressifs & tests automatiques (v2)
+# 🎓 Projet d'algorithmie – Apprentissage par TDD
 
-Cette version corrige les **noms de packages** (compatibles import Python) et ajoute un **kit de benchmarks** avec des **jeux de données** pour comparer les performances, notamment des tris.
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![Tests](https://img.shields.io/badge/tests-74%20tests-green.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)]()
 
-## Prérequis
-- Python 3.10+
-- `pip`
+**Un parcours progressif d'apprentissage de l'algorithmique en Python avec approche TDD (Test-Driven Development)**
 
-## Installation
-```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux:
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+Ce projet propose une série d'exercices de programmation structurés en 7 modules, allant des bases (variables, conditions) aux algorithmes avancés (TSP, parcours d'arbres). Chaque exercice est accompagné de tests unitaires qui guident l'apprentissage et valident la progression.
 
-## Lancer les tests
+## 📚 Table des matières
+
+- [Vue d'ensemble](#-vue-densemble-des-exercices)
+- [Prérequis](#-prérequis)
+- [Installation](#-installation)
+- [Utilisation](#-utilisation)
+- [Structure du projet](#-structure-du-projet)
+- [Philosophie TDD](#-philosophie-tdd)
+- [Benchmarks](#-benchmarks-de-performance)
+
+## 🗺️ Vue d'ensemble des exercices
+
+| Exercice | Titre | Niveau | Temps | Tests | Concepts clés |
+|----------|-------|--------|-------|-------|---------------|
+| **01** | Variables & conditions | ⭐ | 30-45min | 11 | Types, conditions, exceptions |
+| **02** | Boucles, listes & dictionnaires | ⭐⭐ | 1h30-2h | 34 | Boucles, collections, itération |
+| **03** | Fonctions & algorithmes célèbres | ⭐⭐⭐ | 2h-3h | 16 | PGCD, Fibonacci, récursivité |
+| **04** | Algorithmes de tri | ⭐⭐⭐⭐ | 2h-3h | 6 | Tri insertion, sélection, rapide |
+| **05** | Parcours d'arbres | ⭐⭐⭐⭐ | 2h-2h30 | 6 | DFS, BFS, arbres binaires |
+| **06** | Voyageur de commerce (TSP) | ⭐⭐⭐⭐⭐ | 3h-4h | 6 | NP-complet, optimisation |
+| **07** | Mini-projet Labyrinthe | 🎮 | Variable | - | Projet Pygame guidé |
+
+**Total : 74 tests unitaires + 1 projet guidé**
+
+## 🔧 Prérequis
+
+- **Python 3.10+** ([télécharger](https://www.python.org/downloads/))
+- **pip** (gestionnaire de paquets Python)
+- Un éditeur de code (VS Code, PyCharm, etc.)
+- Connaissances de base en programmation (recommandé mais pas obligatoire)
+
+## 📥 Installation
+
+1. **Cloner le repository** (ou télécharger le ZIP)
+   ```bash
+   git clone <url-du-repo>
+   cd algo_bases
+   ```
+
+2. **Créer un environnement virtuel**
+   ```bash
+   python -m venv .venv
+   ```
+
+3. **Activer l'environnement virtuel**
+   ```bash
+   # Windows
+   .venv\Scripts\activate
+
+   # macOS/Linux
+   source .venv/bin/activate
+   ```
+
+4. **Installer les dépendances**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## 🚀 Utilisation
+
+### Lancer tous les tests
+
 ```bash
 pytest -q
 ```
 
-## Benchmarks de performance (tris)
+### Lancer les tests d'un exercice spécifique
+
 ```bash
-# Générer/rafraîchir les jeux de données
-python tools/generate_datasets.py
+# Exercice 01
+pytest -q ex01_variables_conditions
 
-# Lancer le benchmark des tris (temps + comparaisons)
-python tools/bench_tri.py
+# Exercice 02
+pytest -q ex02_boucles_listes_dictionaire
 
-# Résultats
-# - out/bench_results.csv : tableau des mesures
-# - out/bench_plot.png    : courbe temps(n) par algorithme (optionnel si matplotlib installé)
+# etc.
 ```
-# algo_bases
+
+### Workflow recommandé
+
+1. **Lire le README** de l'exercice (ex: `ex01_variables_conditions/README.md`)
+2. **Ouvrir le fichier source** (ex: `ex01_variables_conditions/src/exercices.py`)
+3. **Implémenter les fonctions** en remplaçant `raise NotImplementedError`
+4. **Lancer les tests** pour valider votre code
+5. **Itérer** jusqu'à ce que tous les tests passent ✅
+
+## 📁 Structure du projet
+
+```
+algo_bases/
+├── ex01_variables_conditions/     # Variables, conditions, exceptions
+│   ├── src/exercices.py           # Code à compléter
+│   ├── tests/test_exercices.py    # Tests unitaires
+│   └── README.md                  # Guide de l'exercice
+├── ex02_boucles_listes_dictionaire/
+├── ex03_fonctions_algo/
+├── ex04_tri/
+├── ex05_arbre_parcours/
+├── ex06_voyageur_commerce/
+├── ex07_mini_projet/              # Projet Pygame labyrinthe
+├── common/                        # Classes réutilisables
+│   └── tree.py                    # Structure d'arbre binaire
+├── tools/                         # Outils de benchmark
+│   ├── generate_datasets.py       # Génération jeux de données
+│   ├── bench_tri.py              # Benchmark des tris
+│   └── metrics.py                # Mesures de performance
+├── data/                         # Jeux de données pour benchmarks
+├── pyproject.toml               # Configuration pytest
+├── requirements.txt             # Dépendances Python
+└── README.md                    # Ce fichier
+```
+
+## 🧪 Philosophie TDD
+
+Ce projet suit une approche **TDD (Test-Driven Development)** :
+
+1. **Red** 🔴 : Les tests échouent car les fonctions ne sont pas implémentées
+2. **Green** 🟢 : Vous écrivez le code minimal pour faire passer les tests
+3. **Refactor** ♻️ : Vous améliorez le code tout en gardant les tests verts
+
+### Avantages du TDD
+
+- ✅ **Validation immédiate** : Vous savez instantanément si votre code fonctionne
+- 🎯 **Objectifs clairs** : Les tests définissent exactement ce qui est attendu
+- 🛡️ **Non-régression** : Les tests empêchent d'introduire des bugs
+- 📚 **Documentation vivante** : Les tests montrent comment utiliser les fonctions
+
+## 📊 Benchmarks de performance
+
+### Générer les jeux de données
+
+```bash
+python tools/generate_datasets.py
+```
+
+Crée des fichiers dans `data/` avec différentes caractéristiques :
+- Données aléatoires
+- Données triées
+- Données inversées
+- Données presque triées
+- Données avec peu de valeurs uniques
+
+### Lancer les benchmarks (tris)
+
+```bash
+python tools/bench_tri.py
+```
+
+**Résultats** :
+- `out/bench_results.csv` : Tableau détaillé des mesures (temps, comparaisons)
+- `out/bench_plot.png` : Graphique comparatif (si matplotlib installé)
+
+### Mesurer le temps d'exécution
+
+```python
+from tools.measure_time import measure_execution_time
+
+duration = measure_execution_time(ma_fonction, arg1, arg2)
+print(f"Temps d'exécution : {duration:.4f}s")
+```
+
+## 🎓 Pour les enseignants
+
+Ce projet peut être utilisé comme :
+- Support de cours d'algorithmique
+- Travaux pratiques auto-corrigés
+- Base pour des projets étudiants
+- Exercices de révision avant examens
+
+### Personnalisation
+
+- Modifier les tests pour ajuster la difficulté
+- Ajouter de nouveaux exercices en suivant la structure existante
+- Créer des branches avec solutions pour correction automatique
+
+## 🤝 Contribution
+
+Les contributions sont bienvenues ! Pour contribuer :
+1. Fork le projet
+2. Créer une branche (`git checkout -b feature/amelioration`)
+3. Commit les changements (`git commit -m 'Ajout fonctionnalité'`)
+4. Push vers la branche (`git push origin feature/amelioration`)
+5. Ouvrir une Pull Request
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+## 🙏 Remerciements
+
+Merci aux contributeurs et à la communauté Python pour les ressources pédagogiques.

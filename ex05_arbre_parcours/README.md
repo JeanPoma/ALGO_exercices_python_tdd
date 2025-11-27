@@ -1,7 +1,68 @@
 # 05 – Algorithmes de parcours d'arbre
-Compléter `src/parcours.py`, puis `pytest -q ex05_arbre_parcours`.
 
-### Algorithmes présents dans `src/exercices`
+## 📋 Informations
+
+- **Niveau** : ⭐⭐⭐⭐ Avancé
+- **Temps estimé** : 2h-2h30
+- **Prérequis** : Exercices 01, 02 et 03 (récursivité, structures de données)
+- **Objectifs d'apprentissage** :
+  - Comprendre les structures d'arbres binaires
+  - Maîtriser les différents types de parcours (DFS, BFS)
+  - Implémenter des parcours récursifs et itératifs
+  - Utiliser les piles et files pour les parcours
+  - Analyser les différences entre parcours en profondeur et en largeur
+
+## 📝 Description
+
+Cet exercice vous apprend à parcourir des arbres binaires de différentes manières. Vous allez implémenter 6 fonctions de parcours : préfixe, infixe, suffixe (récursifs) et DFS/BFS (itératifs avec pile/file). Ces algorithmes sont fondamentaux pour manipuler les structures hiérarchiques.
+
+## 🎯 Fonctions à implémenter
+
+### 🌳 Parcours récursifs (3 fonctions)
+1. **`parcours_prefixe(racine)`** - Parcours pré-ordre (racine → gauche → droit)
+2. **`parcours_infixe(racine)`** - Parcours in-ordre (gauche → racine → droit)
+3. **`parcours_suffixe(racine)`** - Parcours post-ordre (gauche → droit → racine)
+
+### 🔄 Parcours itératifs (3 fonctions)
+4. **`parcours_dfs(racine)`** - Depth-First Search avec pile
+5. **`parcours_bfs(racine)`** - Breadth-First Search avec file
+6. **`parcours_largeur(racine)`** - Alias de BFS (parcours par niveaux)
+
+## 🚀 Comment démarrer
+
+1. Étudier la classe `Node` dans `common/tree.py`
+2. Ouvrir le fichier `src/parcours.py`
+3. Implémenter les parcours un par un
+4. Lancer les tests :
+   ```bash
+   pytest -q ex05_arbre_parcours
+   ```
+
+## 💡 Astuces
+
+### Structure d'arbre
+```python
+class Node:
+    def __init__(self, value, left=None, right=None):
+        self.value = value
+        self.left = left    # Sous-arbre gauche
+        self.right = right  # Sous-arbre droit
+```
+
+### Parcours récursifs
+- **Préfixe** : Visiter racine, puis gauche, puis droit
+- **Infixe** : Visiter gauche, puis racine, puis droit (donne ordre trié pour BST)
+- **Suffixe** : Visiter gauche, puis droit, puis racine
+
+### Parcours itératifs
+- **DFS (pile)** : LIFO - Last In First Out, explorer en profondeur
+- **BFS (file)** : FIFO - First In First Out, explorer par niveau
+
+### Collections Python utiles
+- **Liste comme pile** : `append()` pour empiler, `pop()` pour dépiler
+- **`collections.deque`** : Efficace pour les files (`append()`, `popleft()`)
+
+## 📚 Ressources - Algorithmes de parcours d'arbre
 
 Voici une description de chaque algorithme inclus dans ce répertoire. Chaque description comprend une explication du
 fonctionnement de l’algorithme ainsi que des ressources pour faciliter l’apprentissage.
@@ -56,3 +117,11 @@ fonctionnement de l’algorithme ainsi que des ressources pour faciliter l’app
     - Conversion en structure linéaire ordonnée
 - **Ressources** :
     - [Pre-order Traversal Visualization](https://youtu.be/VHgiIJp-OkY)
+
+## ✅ Critères de réussite
+
+- Tous les tests passent (6 fonctions de parcours testées)
+- Comprendre les différences entre parcours récursifs et itératifs
+- Maîtriser l'utilisation de piles et files
+- Code efficace et lisible
+- Gestion correcte des arbres vides (None)
