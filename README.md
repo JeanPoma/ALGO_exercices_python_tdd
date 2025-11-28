@@ -177,20 +177,52 @@ Ce projet peut être utilisé comme :
 - Base pour des projets étudiants
 - Exercices de révision avant examens
 
+### 📚 Documentation enseignant
+
+Des ressources complètes sont disponibles pour vous aider :
+
+- **[📖 Guide enseignant](docs/guide_enseignant.md)** - Conseils pédagogiques détaillés par exercice
+  - Progression recommandée (semestre ou intensif)
+  - Points d'attention et erreurs fréquentes
+  - Activités suggérées et différenciation
+  - FAQ enseignants
+
+- **[📊 Grille d'évaluation](docs/grille_evaluation.md)** - Barème détaillé et critères
+  - Notation par exercice (/10)
+  - Critères de qualité du code
+  - Bonus et malus
+  - Conseils pour la correction
+
 ### Personnalisation
 
 - Modifier les tests pour ajuster la difficulté
 - Ajouter de nouveaux exercices en suivant la structure existante
 - Créer des branches avec solutions pour correction automatique
+- Utiliser GitHub Classroom pour gestion automatisée
 
 ## 🤝 Contribution
 
-Les contributions sont bienvenues ! Pour contribuer :
+Les contributions sont bienvenues ! Que vous souhaitiez :
+- 🐛 Corriger des bugs
+- ✨ Ajouter de nouvelles fonctionnalités
+- 📚 Améliorer la documentation
+- 🎓 Créer de nouveaux exercices
+- 🔧 Optimiser les outils existants
+
+**Consultez le [Guide de contribution](CONTRIBUTING.md)** pour :
+- Standards de code à respecter
+- Processus de développement
+- Comment soumettre une Pull Request
+- Code de conduite
+
+### Contribution rapide
+
 1. Fork le projet
 2. Créer une branche (`git checkout -b feature/amelioration`)
-3. Commit les changements (`git commit -m 'Ajout fonctionnalité'`)
-4. Push vers la branche (`git push origin feature/amelioration`)
-5. Ouvrir une Pull Request
+3. Faire vos modifications (`make check-fix && make test`)
+4. Commit les changements (`git commit -m 'feat: Description'`)
+5. Push vers la branche (`git push origin feature/amelioration`)
+6. Ouvrir une Pull Request
 
 ## 📄 Licence
 
